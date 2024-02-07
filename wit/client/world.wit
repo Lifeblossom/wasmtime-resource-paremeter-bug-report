@@ -1,0 +1,21 @@
+package component:bug-report;
+
+world example {
+    import resource2-interface;
+    import resource1-interface;
+}
+
+interface resource1-interface {
+    create: func() -> resource1;
+    resource resource1;
+}
+
+interface resource2-interface {
+
+    use resource1-interface.{resource1};
+    create-resource2: func(resource1: resource1) -> resource2;
+
+    do-stuff: func(resource1: resource1, resource2: resource2) -> resource2;
+
+    resource resource2;
+}
